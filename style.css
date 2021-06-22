@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-color: rgb(182, 174, 174);
+}
+
+h2, h1{
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 240px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #000;
+    background-color: rgba(107, 149, 204, 0.521);
+
+    margin-top: 10px;
+}
+
+.grid{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.celula{
+    width: 75px;
+    height: 65px;
+    font-size: 30pt;
+    margin: 4px 2px;
+    font-weight: 300pt;
+    padding-top: 10px;
+    border-radius: 3px;
+    text-align: center;
+    background-color: rgb(78, 150, 153);
+
+    cursor: pointer;
+}
+
+.but{
+    background-color: rgb(78, 150, 153);
+    font-style: italic;
+    border-radius: 10px;
+    border: solid 2px #000;
+    font-size: 20px;
+
+    cursor: pointer;
+}
+.but:focus{
+    cursor: default;
+}
