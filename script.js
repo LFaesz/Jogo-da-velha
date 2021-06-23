@@ -18,7 +18,7 @@ const COMBINACOES = [
 document.addEventListener("click", (event) => {
     if(event.target.matches([".celula"])){
         jogar(event.target.id, JOGADOR_X);
-        bot();
+        setTimeout(()=>bot(), 600);
     }
 });  
 
@@ -30,11 +30,12 @@ function bot(){
                 posicoesDisponiveis.push(index);
             }
         }
-
-        const posicaoAleatoria = Math.floor(
-            Math.random()* posicoesDisponiveis.length
-        )
     }
+    const posicaoAleatoria = Math.floor(
+        Math.random()* posicoesDisponiveis.length
+    );
+
+    jogar(posicoesDisponiveis[posicaoAleatoria], JOGADOR_O);
 }
 
 function jogar(id, turno){
@@ -52,13 +53,11 @@ function checarVencedor(turno){
         })
     })
 
-if(vencedor){
-    encerrarJogo(turno);
-}else if(checarEmpate()){
-    encerrarJogo();
-}else{
-    checarturno = !checarturno;
-}
+    if(vencedor){
+        encerrarJogo(turno);
+    }else if(checarEmpate()){
+        encerrarJogo();
+    }
 }
 
 function checarEmpate() {
