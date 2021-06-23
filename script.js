@@ -1,5 +1,6 @@
 const celulas = document.querySelectorAll(".celula")
 //let checarturno = true;
+let fimdejogo = false;
 
 const JOGADOR_X = 'X';
 const JOGADOR_O = 'O';
@@ -31,11 +32,13 @@ function bot(){
             }
         }
     }
-    const posicaoAleatoria = Math.floor(
-        Math.random()* posicoesDisponiveis.length
-    );
-
-    jogar(posicoesDisponiveis[posicaoAleatoria], JOGADOR_O);
+    if(fimdejogo == false){
+        const posicaoAleatoria = Math.floor(
+            Math.random()* posicoesDisponiveis.length
+        );
+    
+        jogar(posicoesDisponiveis[posicaoAleatoria], JOGADOR_O);
+    }
 }
 
 function jogar(id, turno){
@@ -83,10 +86,12 @@ function encerrarJogo(vencedor = null){
         aviso.innerHTML = `<h1>O jogador vencedor foi: ${vencedor}</h1>
             <h2><button onclick="restart()" id="but" class="but">Recomeçar</button></h2>
         `
+        fimdejogo = true;
     }else{
         aviso.innerHTML = `<h1>O jogo empatou!</h1>
             <h2><button onclick="restart()" id="but" class="but">Recomeçar</button></h2>
         `
+        fimdejogo = true;
     }
 }
 
